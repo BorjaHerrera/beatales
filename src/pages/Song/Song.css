@@ -1,0 +1,45 @@
+#song-section {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.selected-song {
+  padding-top: var(--bt-padding-xl);
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background: var(--bt-color-3);
+  padding-left: 2%;
+}
+
+.youtube-div {
+  width: 30%;
+}
+.one-youtube-iframe {
+  width: 80%;
+  height: 300px;
+}
+.song-data {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: var(--bt-gap-m);
+}
+
+.one-song-title {
+  width: 100%;
+  color: var(--bt-color-1);
+  font-size: 1.6rem;
+}
+
+.one-song-story {
+  width: 100%;
+  color: var(--bt-color-1);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}

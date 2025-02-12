@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  /* BRANDING COLORS */
+  --bt-color-1: #3c465d;
+  --bt-color-2: #ffffff;
+  --bt-color-3: #1c7180;
+  --bt-color-4: rgb(227, 242, 246);
+  --bt-color-5: #999999;
+
+  /* FONTS */
+  --bt-primary-font: 'Antonio', sans-serif;
+  --bt-secondary-font: 'Raleway', sans-serif;
+
+  /* SPACINGS */
+  --bt-margin-xxs: 5px;
+  --bt-margin-xs: 10px;
+  --bt-margin-s: 20px;
+  --bt-margin-m: 30px;
+  --bt-margin-l: 40px;
+  --bt-margin-xl: 50px;
+  --bt-margin-xxl: 100px;
+  --bt-margin-xxxl: 150px;
+  --bt-margin-xxxxl: 180px;
+
+  --bt-padding-xxs: 5px;
+  --bt-padding-xs: 10px;
+  --bt-padding-s: 20px;
+  --bt-padding-m: 30px;
+  --bt-padding-l: 40px;
+  --bt-padding-xl: 60px;
+  --bt-padding-xxl: 100px;
+  --bt-padding-xxxl: 150px;
+
+  --bt-gap-xxs: 5px;
+  --bt-gap-xs: 10px;
+  --bt-gap-s: 20px;
+  --bt-gap-m: 30px;
+  --bt-gap-l: 40px;
+  --bt-gap-xl: 50px;
+  --bt-gap-xxl: 100px;
+}
+
+* {
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--bt-secondary-font);
+}
+
+h1,
+h2 {
+  font-family: var(--bt-primary-font);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hidden {
+  display: none;
+}
+body {
+  min-height: 100svh;
+}

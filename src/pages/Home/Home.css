@@ -1,0 +1,115 @@
+#home-section {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 230, 230, 0.4) 20%,
+    rgba(255, 245, 210, 0.4) 40%,
+    rgba(225, 235, 255, 0.4) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.song-name {
+  color: var(--bt-color-1);
+}
+
+.song-link {
+  color: var(--bt-color-1);
+}
+
+.description {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--bt-padding-xxl);
+  padding-bottom: var(--bt-padding-xl);
+  margin: 0 auto;
+  align-items: center;
+  gap: var(--bt-gap-l);
+}
+
+.h1-description {
+  font-family: var(--bt-primary-font);
+  color: var(--bt-color-1);
+  font-size: 3rem;
+}
+
+.p-description {
+  font-family: var(--bt-secondary-font);
+  font-size: 1.2rem;
+  text-align: center;
+  width: 80%;
+  line-height: 1.5;
+}
+
+.beatles-img {
+  width: 600px;
+}
+
+#songs-container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.songs-list {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  gap: var(--bt-gap-m);
+}
+
+.single-song {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--bt-gap-s);
+  padding: var(--bt-padding-xs) var(--bt-padding-s);
+}
+
+.single-song:hover {
+  background-color: var(--bt-color-4);
+  border-radius: 5px;
+}
+.youtube-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.song-name {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 400px;
+}
+
+.song-link {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+}
+
+.white-heart {
+  cursor: pointer;
+  width: 25px;
+}
+
+.white-heart:hover {
+  transform: scale(1.1);
+}
+
+.music-img {
+  cursor: pointer;
+  width: 30px;
+}
+
+.music-img:hover {
+  transform: scale(1.1);
+}
