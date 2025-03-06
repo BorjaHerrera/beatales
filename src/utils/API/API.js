@@ -1,4 +1,4 @@
-const url = 'https://beatales.vercel.app/api/v1';
+const url = 'https://beatales-backend.vercel.app/api/v1';
 
 // prettier-ignore
 export const API = async ({ endpoint, method = 'GET', body, isJSON = true, token = null }) => {
