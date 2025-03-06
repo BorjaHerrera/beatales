@@ -1,6 +1,6 @@
-import './main.css';
+import './mainContainer.css';
 
-export const Main = () => {
+export const MainContainer = () => {
   const main = document.createElement('main');
   document.body.appendChild(main);
 };
