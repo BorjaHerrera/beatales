@@ -23,7 +23,6 @@
   padding: var(--bt-padding-xs);
   border-radius: 10px;
   border: 2px, solid, var(--bt-color-1);
-  background-color: var(--bt-color-4);
 }
 
 .input-form::placeholder {

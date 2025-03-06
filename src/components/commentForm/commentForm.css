@@ -1,0 +1,21 @@
+.comment-form {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: auto;
+  gap: var(--bt-gap-xs);
+}
+
+.form-song-comment textarea {
+  margin-top: -12px;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-comment-song {
+  width: 10%;
+  background-color: var(--bt-color-4);
+}

@@ -1,6 +1,5 @@
+import { createSongComments } from '../createSongComment/createSongComments';
 import './storyCommentSection.css';
-
-import { createCommentsDiv } from '../commentsDiv/commentsDiv';
 
 export const createStoryCommentSection = async (song, normalizedName) => {
   const storyCommentSection = document.createElement('section');
@@ -20,7 +19,6 @@ export const createStoryCommentSection = async (song, normalizedName) => {
   const contentContainer = document.createElement('div');
   contentContainer.className = 'content-container';
 
-  // Primero agregamos la historia de forma predeterminada
   const songStory = document.createElement('p');
   songStory.className = 'one-song-story';
   songStory.textContent = song.story;
@@ -28,14 +26,14 @@ export const createStoryCommentSection = async (song, normalizedName) => {
 
   historyTab.addEventListener('click', () => {
     contentContainer.innerHTML = '';
-    contentContainer.appendChild(songStory); // Vuelve a añadir la historia si se hace clic
+    contentContainer.appendChild(songStory);
   });
 
   commentsTab.addEventListener('click', async () => {
     contentContainer.innerHTML = '';
-    const commentsDiv = createCommentsDiv(normalizedName);
-    commentsDiv.className = 'story-comments';
-    contentContainer.appendChild(commentsDiv);
+    const songComments = await createSongComments();
+    songComments.className = 'song-comments';
+    contentContainer.appendChild(songComments);
   });
 
   tabsContainer.append(historyTab, commentsTab);

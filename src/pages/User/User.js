@@ -1,21 +1,16 @@
+import { printFavorites } from '../../components/printFavorites/printFavorites';
+import { createUserActions } from '../../components/userActions/createUserActions';
 import { API } from '../../utils/API/API';
 import { createPage } from '../../utils/functions/createPage';
+import { logout } from '../../utils/functions/logout';
 import './User.css';
 
 export const User = () => {
   const section = createPage('user-section');
   const id = window.location.pathname.split('/').pop();
-
-  if (!id) {
-    console.error('ID de usuario no encontrado en la URL');
-    section.innerHTML = '<p>Error: ID de usuario no encontrado.</p>';
-    return section;
-  }
+  console.log('ID extraído:', id);
 
   section.innerHTML = '';
-
-  const userContainer = document.createElement('article');
-  userContainer.className = 'user-container';
 
   const printUser = async () => {
     try {
@@ -25,19 +20,32 @@ export const User = () => {
         token: localStorage.getItem('token')
       });
 
-      const userHero = document.createElement('div');
-      userHero.className = 'user-hero';
-      userHero.textContent = `Hello ${user.name}`;
+      const userH3 = document.createElement('h3');
+      userH3.className = 'h3-user';
+      userH3.textContent = `Hola, ${
+        user.name.charAt(0).toUpperCase() + user.name.slice(1)
+      }`;
 
-      userContainer.appendChild(userHero);
+      const userSectionContent = document.createElement('div');
+      userSectionContent.className = 'user-section-content';
+
+      const userActions = createUserActions(id, userSectionContent);
+
+      const logoutButton = document.createElement('button');
+      logoutButton.className = 'logout-button';
+      logoutButton.classList.add('main-button');
+      logoutButton.textContent = 'Cerrar sesión';
+      logoutButton.addEventListener('click', logout);
+
+      section.append(userH3, userActions, userSectionContent, logoutButton);
+
+      printFavorites({ id, userSectionContent });
     } catch (error) {
       console.error('Error al obtener el usuario por id:', error);
-      userContainer.innerHTML = `<p>Error: ${error.message}</p>`;
     }
   };
 
-  section.appendChild(userContainer);
-  printUser(); // Llamar a la función para obtener y mostrar los datos del usuario
+  printUser();
 
   return section;
 };

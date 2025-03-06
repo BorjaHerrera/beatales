@@ -1,10 +1,14 @@
 import { errorMessage } from './errorMessage';
 
 export const handleError = (form, error) => {
-  // Asegúrate de que 'error' tiene la propiedad 'details' y que 'errorType' está presente
-  const errorData = error.details || {}; // Si no tiene 'details', asigna un objeto vacío
+  if (typeof error === 'string') {
+    errorMessage(form, error);
+    return;
+  }
 
-  const errorType = errorData.errorType || 'UNKNOWN_ERROR'; // Si no tiene 'errorType', asigna un valor predeterminado
+  const errorData = error.details || {};
+
+  const errorType = errorData.errorType || 'UNKNOWN_ERROR';
 
   switch (errorType) {
     case 'DUPLICATED_EMAIL':
@@ -17,6 +21,18 @@ export const handleError = (form, error) => {
       errorMessage(
         form,
         'Contraseña o usuario incorrecto. Por favor, inténtalo de nuevo.'
+      );
+      break;
+    case 'YOUTUBE_ERROR':
+      errorMessage(
+        form,
+        'El enlace debe ser de YouTube Music y debe comenzar con "https://music.youtube.com'
+      );
+      break;
+    case 'EXISTING_SONG_ERROR':
+      errorMessage(
+        form,
+        'Esta canción ya está publicada y no puede subir de nuevo.'
       );
       break;
     case 'OTHER_ERROR':

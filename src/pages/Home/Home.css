@@ -3,6 +3,9 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+}
+
+body {
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 1) 0%,
@@ -13,45 +16,8 @@
   );
 }
 
-.song-name {
-  color: var(--bt-color-1);
-}
-
-.song-link {
-  color: var(--bt-color-1);
-}
-
-.description {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding-top: var(--bt-padding-xxl);
-  padding-bottom: var(--bt-padding-xl);
-  margin: 0 auto;
-  align-items: center;
-  gap: var(--bt-gap-l);
-}
-
-.h1-description {
-  font-family: var(--bt-primary-font);
-  color: var(--bt-color-1);
-  font-size: 3rem;
-}
-
-.p-description {
-  font-family: var(--bt-secondary-font);
-  font-size: 1.2rem;
-  text-align: center;
-  width: 80%;
-  line-height: 1.5;
-}
-
-.beatles-img {
-  width: 600px;
-}
-
 #songs-container {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -61,26 +27,32 @@
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  gap: var(--bt-gap-m);
+  gap: var(--bt-gap-xs);
 }
 
 .single-song {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: var(--bt-gap-s);
-  padding: var(--bt-padding-xs) var(--bt-padding-s);
+  gap: var(--bt-gap-l);
 }
 
 .single-song:hover {
   background-color: var(--bt-color-4);
   border-radius: 5px;
+  padding: var(--bt-padding-xs);
 }
-.youtube-thumbnail {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 4px;
+
+.song-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: var(--bt-gap-m);
+}
+
+.song-name-container {
+  width: 60%;
 }
 
 .song-name {
@@ -88,28 +60,177 @@
   justify-content: start;
   align-items: start;
   width: 400px;
+  color: var(--bt-color-1);
 }
 
-.song-link {
+.youtube-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.song-details-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: auto;
+  gap: var(--bt-gap-s);
+}
+
+.song-link,
+.delete-song {
   width: 130px;
   display: flex;
   justify-content: center;
-}
-
-.white-heart {
-  cursor: pointer;
-  width: 25px;
-}
-
-.white-heart:hover {
-  transform: scale(1.1);
+  color: var(--bt-color-1);
 }
 
 .music-img {
   cursor: pointer;
-  width: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .music-img:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 1110px) {
+  .song-name {
+    width: 350px;
+  }
+}
+
+@media (max-width: 970px) {
+  .song-name {
+    width: 300px;
+  }
+}
+
+@media (max-width: 910px) {
+  #songs-container,
+  .user-section-content {
+    margin: 0;
+    margin-top: var(--bt-margin-xxs);
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .song-link,
+  .delete-song {
+    font-size: 0.8rem;
+    width: 120px;
+  }
+  .song-name {
+    width: 250px;
+  }
+
+  .song-details-container {
+    gap: var(--bt-gap-xs);
+  }
+}
+
+@media (max-width: 710px) {
+  .song-name {
+    width: 200px;
+  }
+}
+
+@media (max-width: 650px) {
+  .song-name {
+    width: 200px;
+  }
+  #songs-container,
+  .user-section-content {
+    padding-left: var(--bt-padding-l);
+  }
+  .song-link,
+  .delete-song {
+    width: 120px;
+  }
+  .single-song,
+  .favorite-song,
+  .uploaded-songs-li {
+    gap: var(--bt-gap-s);
+  }
+  .song-info-container {
+    gap: var(--bt-gap-s);
+  }
+}
+
+@media (max-width: 590px) {
+  .song-name {
+    width: 150px;
+  }
+}
+
+@media (max-width: 520px) {
+  .song-name {
+    width: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  .song-info-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+  #songs-container,
+  .user-section-content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .songs-list,
+  .favorites-list,
+  .uploaded-songs-ul {
+    width: 100%;
+    align-items: center;
+    gap: var(--bt-gap-m);
+  }
+  .single-song,
+  .favorite-song,
+  .uploaded-songs-ul {
+    align-items: start;
+  }
+  .song-name {
+    width: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  #songs-container,
+  .user-section-content {
+    width: 100%;
+    margin: 0;
+    padding-left: 60px;
+  }
+  .songs-list,
+  .favorites-list,
+  .uploaded-songs-ul {
+    width: 100%;
+    align-items: start;
+  }
+  .song-name {
+    width: 220px;
+  }
+  .song-link,
+  .delete-song {
+    width: 110px;
+  }
+  .main-button {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 350px) {
+    .favorite-song:hover {
+      background-color: unset;
+      border-radius: unset;
+      padding: unset;
+    }
+  }
 }

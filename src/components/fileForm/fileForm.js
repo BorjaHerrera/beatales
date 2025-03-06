@@ -9,29 +9,33 @@ export const fieldForm = ({ labelText, type = 'text', required = 'true', placeho
   label.className = 'label-form';
   label.textContent = labelText;
 
-  // Crear un contenedor para el input y el icono de visibilidad de contraseña
   const inputContainer = document.createElement('div');
   inputContainer.className = 'input-container';
 
-  const input = document.createElement('input');
-  input.className = 'input-form';
-  input.type = type;
-  input.required = required;
-  input.placeholder = placeholder;
-  input.autocomplete = autocomplete;
+  let input;
 
-  if (labelText?.toLowerCase() === 'name') {
+  if (type === 'textarea') {
+    input = document.createElement('textarea');
+    input.className = 'textarea-form';
+  } else {
+    input = document.createElement('input');
+    input.className = 'input-form';
+    input.type = type;
+    input.autocomplete = autocomplete;
+
+  if (labelText?.toLowerCase() === 'nombre') {
     input.classList.add('register-name');
   }
+  }
 
-
-  // Si es un campo de contraseña, agregar el icono dentro del contenedor
   if (type === 'password') {
     const passwordEye = passwordVisibility(input);
     inputContainer.appendChild(input);
     inputContainer.appendChild(passwordEye);
   } else {
     inputContainer.appendChild(input);
+    input.required = required;
+    input.placeholder = placeholder;
   }
 
   fieldForm.appendChild(label);

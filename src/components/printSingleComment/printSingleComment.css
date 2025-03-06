@@ -1,0 +1,15 @@
+.ul-single-comment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bt-gap-m);
+}
+
+.li-single-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.li-single-comment > .comment-text {
+  padding-top: var(--bt-padding-xxs);
+  padding-left: 52px;
+}

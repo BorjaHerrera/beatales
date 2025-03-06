@@ -45,5 +45,6 @@ export const Login = () => {
   });
 
   form.addEventListener('submit', loggedIn);
+
   section.append(h1, paragraph, form, terms, notMember, createAccount);
 };

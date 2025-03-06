@@ -2,11 +2,15 @@ import { navigate } from '../../utils/functions/navigate';
 import { routes } from '../../utils/routes/routes';
 import './header.css';
 
-export const header = () => {
-  if (document.getElementById('header')) return; // Evita duplicados
+const appContainer = document.querySelector('#app');
 
-  const header = document.createElement('header');
-  header.id = 'header';
+export const header = () => {
+  let header = document.querySelector('#header');
+
+  if (!header) {
+    header = document.createElement('header');
+    header.id = 'header';
+  }
 
   const nav = document.createElement('nav');
   const ul = document.createElement('ul');
@@ -21,12 +25,7 @@ export const header = () => {
           ...route,
           path: route.path.replace(':id', userId)
         }))
-    : routes.filter(
-        (route) =>
-          route.path === '/' ||
-          route.path === '/login' ||
-          route.path === '/registro'
-      );
+    : routes.filter((route) => route.path === '/' || route.path === '/login');
 
   for (const route of filteredRoutes) {
     const li = document.createElement('li');
@@ -35,17 +34,35 @@ export const header = () => {
     a.href = route.path;
     a.textContent = route.text;
 
-    a.addEventListener('click', (e) =>
-      navigate(e, { path: route.path, page: route.page })
-    );
+    a.addEventListener('click', (e) => {
+      navigate(e, { path: route.path, page: route.page });
+
+      header.classList.remove('header-expanded');
+      nav.classList.remove('show-menu');
+    });
 
     li.appendChild(a);
     ul.appendChild(li);
   }
 
-  nav.appendChild(ul);
-  header.appendChild(nav);
-  document.body.appendChild(header);
+  const responsiveMenu = document.createElement('div');
+  responsiveMenu.className = 'responsive-menu';
 
-  return header;
+  const responsiveButton = document.createElement('span');
+  responsiveButton.className = 'responsive-button';
+  responsiveButton.textContent = '☰';
+
+  nav.appendChild(ul);
+
+  responsiveMenu.appendChild(responsiveButton);
+  responsiveMenu.appendChild(nav);
+
+  header.appendChild(responsiveMenu);
+
+  responsiveButton.addEventListener('click', () => {
+    header.classList.toggle('header-expanded');
+    nav.classList.toggle('show-menu');
+  });
+
+  appContainer.prepend(header);
 };

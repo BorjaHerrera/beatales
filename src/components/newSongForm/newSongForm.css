@@ -1,0 +1,27 @@
+.new-song-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.song-name-form {
+  width: 100%;
+}
+
+.textarea-form {
+  padding-left: 4px;
+  padding-top: 4px;
+  width: 70%;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px solid var(--bt-color-1);
+  resize: vertical;
+}
+
+.song-youtube-form {
+  width: 100%;
+}
+
+.new-song-button {
+  width: 150px;
+}

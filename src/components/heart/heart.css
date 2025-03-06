@@ -1,0 +1,22 @@
+.white-heart {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.white-heart:hover {
+  transform: scale(1.1);
+}
+
+.red-heart {
+  cursor: pointer;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.red-heart:hover {
+  transform: scale(1.1);
+}

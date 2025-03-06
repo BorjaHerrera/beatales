@@ -1,5 +1,4 @@
-export const printFirstLetter = () => {
-  const userName = localStorage.getItem('name') || 'U';
+export const printFirstLetter = (userName) => {
   const firstLetterDiv = document.createElement('div');
   const firstLetter = userName.charAt(0).toUpperCase();
   firstLetterDiv.className = 'circle-initial';

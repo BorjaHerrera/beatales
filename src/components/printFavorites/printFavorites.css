@@ -1,0 +1,27 @@
+.favorites-list {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  gap: var(--bt-gap-xs);
+}
+.favorite-song {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--bt-gap-s);
+}
+
+.favorite-song:hover {
+  background-color: var(--bt-color-4);
+  border-radius: 5px;
+  padding: var(--bt-padding-xs);
+}
+
+@media (max-width: 350px) {
+  .favorite-song:hover {
+    background-color: unset;
+    border-radius: unset;
+    padding: unset;
+  }
+}

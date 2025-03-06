@@ -1,0 +1,180 @@
+.description {
+  width: 100%;
+}
+
+.beatles-img {
+  width: 600px;
+}
+
+.description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--bt-padding-xxl);
+  padding-bottom: var(--bt-padding-xl);
+  margin: 0 auto;
+  align-items: center;
+  gap: var(--bt-gap-l);
+}
+
+.h1-description {
+  font-family: var(--bt-primary-font);
+  color: var(--bt-color-1);
+  font-size: 3rem;
+}
+
+.p-description {
+  font-family: var(--bt-secondary-font);
+  font-size: 1.2rem;
+  text-align: center;
+  width: 50%;
+  line-height: 1.5;
+}
+
+@media (max-width: 1150px) {
+  .h1-description {
+    font-size: 2.5rem;
+  }
+  .beatles-img {
+    width: 550px;
+  }
+
+  .p-description {
+    width: 60%;
+  }
+}
+
+@media (max-width: 910px) {
+  .description {
+    margin: 0;
+    margin-bottom: var(--bt-margin-xxs);
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .beatles-img {
+    width: 500px;
+  }
+}
+
+@media (max-width: 750px) {
+  .h1-description {
+    font-size: 2.3rem;
+  }
+
+  .beatles-img {
+    width: 450px;
+  }
+
+  .p-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 677px) {
+  .description {
+    padding-top: var(--bt-padding-xl);
+  }
+  .h1-description {
+    font-size: 2rem;
+  }
+
+  .beatles-img {
+    width: 400px;
+  }
+
+  .p-description {
+    font-size: 1rem;
+    width: 70%;
+  }
+}
+
+@media (max-width: 540px) {
+  .h1-description {
+    font-size: 1.8rem;
+  }
+
+  .beatles-img {
+    width: 350px;
+  }
+
+  .p-description {
+    font-size: 1rem;
+    width: 70%;
+  }
+}
+
+@media (max-width: 505px) {
+  .h1-description {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .beatles-img {
+    width: 320px;
+  }
+
+  .p-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .h1-description {
+    font-size: 2.4rem;
+    padding-left: 14%;
+  }
+
+  .beatles-img {
+    width: 300px;
+    padding-left: var(--bt-padding-s);
+  }
+
+  .p-description {
+    padding-left: var(--bt-padding-s);
+  }
+}
+
+@media (max-width: 350px) {
+  .h1-description {
+    font-size: 2rem;
+    padding-left: 16%;
+  }
+
+  .beatles-img {
+    width: 250px;
+    padding-left: var(--bt-padding-s);
+  }
+
+  .p-description {
+    width: 90%;
+    padding-left: var(--bt-padding-l);
+  }
+}
+
+@media (max-width: 320px) {
+  .h1-description {
+    padding-left: 20%;
+  }
+
+  .beatles-img {
+    padding-left: var(--bt-padding-m);
+  }
+}
+
+@media (max-width: 300px) {
+  .h1-description {
+    font-size: 1.9rem;
+    padding-left: 23%;
+  }
+
+  .beatles-img {
+    padding-left: var(--bt-padding-m);
+  }
+}

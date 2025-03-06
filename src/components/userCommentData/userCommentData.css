@@ -1,0 +1,28 @@
+.user-comment-data {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: var(--bt-gap-xs);
+  padding-left: 2px;
+}
+
+.circle-initial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bt-color-2);
+  border-radius: 50%;
+  color: var(--bt-color-1);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid var(--bt-color-4);
+}
+
+.comment-name {
+  font-size: 1rem;
+}

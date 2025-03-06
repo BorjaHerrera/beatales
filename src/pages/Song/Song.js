@@ -1,3 +1,4 @@
+import { heartButton } from '../../components/heart/heart';
 import { createStoryCommentSection } from '../../components/storyCommentSection/storyCommentSection';
 import { API } from '../../utils/API/API';
 import { createPage } from '../../utils/functions/createPage';
@@ -37,12 +38,23 @@ export const Song = () => {
       songTitle.textContent = song.name;
       songTitle.className = 'one-song-title';
 
+      const heart = await heartButton(song._id);
+
+      const heartContainer = document.createElement('div');
+      heartContainer.className = 'heart-container';
+
+      const heartText = document.createElement('span');
+      heartText.className = 'heart-text';
+      heartText.textContent = 'Añadir a favoritos';
+
+      heartContainer.append(heartText, heart);
+
       const beatles = document.createElement('h3');
       beatles.className = 'beatles-h3';
       beatles.textContent = 'The Beatles';
 
       youtubeContainer.appendChild(iframeYoutube);
-      songData.append(songTitle, beatles);
+      songData.append(beatles, songTitle, heartContainer);
 
       songNameContainer.appendChild(youtubeContainer);
       songNameContainer.appendChild(songData);

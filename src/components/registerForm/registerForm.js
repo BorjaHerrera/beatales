@@ -5,7 +5,7 @@ import './registerForm.css';
 export const registerForm = (form) => {
   form.className = "register-form"
 
-  const nameField = fieldForm( { labelText: "Name", type: "text" })
+  const nameField = fieldForm( { labelText: "Nombre", type: "text" })
 
   const emailField = fieldForm( { labelText: "Correo electrónico", type: 'email'} )
   const passwordField = fieldForm( { labelText: "Contraseña", type: 'password'} )
