@@ -40,3 +40,69 @@
   margin-left: 30%;
   padding-top: var(--bt-padding-s);
 }
+
+@media (max-width: 1200px) {
+  #register-section {
+    padding-left: 0;
+  }
+
+  .h1-register {
+    width: 50%;
+  }
+
+  .paragraph-register {
+    width: 50%;
+  }
+
+  #form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 677px) {
+  #register-section {
+    padding-top: 70px;
+  }
+
+  .h1-register,
+  .paragraph-register,
+  #form,
+  .terms {
+    width: 70%;
+    margin-left: 20%;
+  }
+}
+
+@media (max-width: 500px) {
+  .h1-register,
+  .paragraph-register {
+    width: 70%;
+  }
+
+  #form {
+    width: 80%;
+  }
+  .h1-register {
+    font-size: 1.8rem;
+  }
+
+  .paragraph-register {
+    font-size: 1.2rem;
+  }
+
+  #form {
+    margin-top: var(--bt-margin-s);
+  }
+}
+
+@media (max-width: 400px) {
+  #register-section {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 310px) {
+  .h1-register {
+    font-size: 1.6rem;
+  }
+}
