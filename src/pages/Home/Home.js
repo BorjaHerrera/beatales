@@ -1,5 +1,6 @@
 import { descriptionHero } from '../../components/descriptionHero/descriptionHero';
 import { heartButton } from '../../components/heart/heart';
+import { createSpinner } from '../../components/spinner/spinner';
 import { API } from '../../utils/API/API';
 import { createPage } from '../../utils/functions/createPage';
 import { extractYouTubeID } from '../../utils/functions/extractYouTube';
@@ -16,6 +17,10 @@ export const Home = () => {
   const printSongs = async () => {
     const songsContainer = document.createElement('div');
     songsContainer.id = 'songs-container';
+
+    const spinner = createSpinner();
+    spinner.classList.add('spinner-home');
+    description.appendChild(spinner);
 
     const ul = document.createElement('ul');
     ul.className = 'songs-list';
@@ -99,6 +104,7 @@ export const Home = () => {
 
         ul.appendChild(li);
       }
+      spinner.remove();
     } catch (error) {
       console.error('Error al obtener canciones:', error);
     }
