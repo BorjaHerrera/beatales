@@ -8,6 +8,7 @@
   display: flex;
   justify-content: start;
   flex-direction: column;
+  z-index: 1;
 }
 
 .responsive-menu {

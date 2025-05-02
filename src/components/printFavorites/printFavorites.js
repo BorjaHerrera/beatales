@@ -93,7 +93,7 @@ export const printFavorites = async ({ id, userSectionContent }) => {
         });
       });
 
-      const heart = await heartButton(song._id);
+      const heart = await heartButton(song._id, favorites);
 
       songDetailsContainer.append(heart, musicImg, songLink);
 

@@ -1,7 +1,7 @@
 import { passwordVisibility } from '../passwordVisibility/passwordVisibility';
 import './fileForm.css';
 // prettier-ignore
-export const fieldForm = ({ labelText, type = 'text', required = 'true', placeholder = "", autocomplete = '' }) => {
+export const fieldForm = ({ labelText, type = 'text', required = true, placeholder = "", autocomplete = '' }) => {
   const fieldForm = document.createElement('div');
   fieldForm.className = 'field-form';
 
@@ -29,6 +29,7 @@ export const fieldForm = ({ labelText, type = 'text', required = 'true', placeho
   }
 
   if (type === 'password') {
+    input.required = true;
     const passwordEye = passwordVisibility(input);
     inputContainer.appendChild(input);
     inputContainer.appendChild(passwordEye);

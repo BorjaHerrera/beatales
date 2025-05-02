@@ -7,7 +7,7 @@ import { removeFavorite } from '../../utils/functions/removeFavorite';
 import './heart.css';
 import { Login } from '../../pages/Login/Login';
 
-export const heartButton = async (songId) => {
+export const heartButton = async (songId, favorites = null) => {
   const heart = document.createElement('img');
   heart.className = 'white-heart';
   heart.src = '/assets/corazon-blanco.png';
@@ -27,7 +27,10 @@ export const heartButton = async (songId) => {
     return heart;
   }
 
-  const isFavorite = async (songId, userId) => {
+  const isFavorite = async () => {
+    if (favorites) {
+      return favorites.some((fav) => fav._id === songId);
+    }
     try {
       const response = await API({
         endpoint: `/usuarios/${userId}/favoritas/`,
@@ -56,14 +59,14 @@ export const heartButton = async (songId) => {
   }
 
   heart.addEventListener('click', async () => {
-    favorite = await isFavorite(songId, userId); // Verifica si está en favoritos nuevamente
+    favorite = await isFavorite(songId, userId);
 
     if (favorite) {
       await removeFavorite(songId, userId);
       heart.src = '/assets/corazon-blanco.png';
       // prettier-ignore
       const userSectionContent = document.querySelector('.user-section-content');
-      await printFavorites({ id: userId, userSectionContent }); // Recargo la lista de favoritos
+      await printFavorites({ id: userId, userSectionContent });
     } else {
       await addFavorite(songId, userId);
       heart.src = '/assets/corazon-rojo.png';

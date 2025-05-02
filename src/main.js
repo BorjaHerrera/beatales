@@ -3,8 +3,14 @@ import { Home } from './pages/Home/Home';
 import { popstate } from './utils/listeners/popState';
 import { MainContainer } from './components/mainContainer/mainContainer';
 import './style.css';
+import { checkLoading } from './utils/functions/checkLoading';
 
-header();
-MainContainer();
-Home();
-popstate();
+const init = async () => {
+  await checkLoading();
+  header();
+  MainContainer();
+  Home();
+  popstate();
+};
+
+init();
