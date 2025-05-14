@@ -13,12 +13,15 @@ export const registered = async (e) => {
   const nameInput = form.querySelector('.register-name');
   const emailInput = form.querySelector('.input-form[type=email]');
   const passwordInput = form.querySelector('.input-form[type=password]');
+  const imageInput = form.querySelector('.input-file');
 
-  const body = {
-    name: nameInput.value,
-    email: emailInput.value,
-    password: passwordInput.value
-  };
+  const formData = new FormData();
+  formData.append('name', nameInput.value);
+  formData.append('email', emailInput.value);
+  formData.append('password', passwordInput.value);
+  if (imageInput && imageInput.files[0]) {
+    formData.append('profileImage', imageInput.files[0]);
+  }
 
   const spinner = createSpinner();
   form.appendChild(spinner);
@@ -26,8 +29,9 @@ export const registered = async (e) => {
   try {
     const res = await API({
       endpoint: '/usuarios/registro',
-      body,
-      method: 'POST'
+      body: formData,
+      method: 'POST',
+      isJSON: false
     });
 
     if (res.user && res.token) {

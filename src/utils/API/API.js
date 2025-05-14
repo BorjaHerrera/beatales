@@ -4,35 +4,34 @@ const url = 'https://beatales-backend.vercel.app/api/v1';
 export const API = async ({ endpoint, method = 'GET', body, isJSON = true, token = null }) => {
   const headers = {};
 
-  if (token) {
+  if (token) {  
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  if (isJSON) {
+  if (isJSON && body && !(body instanceof FormData)) {
     headers['Content-Type'] = 'application/json';
   }
 
-console.log('Body:', body);
-console.log('Headers:', headers);
+const bodyData = isJSON && !(body instanceof FormData) ? (body ? JSON.stringify(body) : null) : body;
 
-const bodyData = isJSON ? (body ? JSON.stringify(body) : null) : body;
+  try {
+    const res = await fetch(url + endpoint, {
+      method,
+      headers,
+      body: bodyData
+    });
 
+    const response = await res.json();
 
-try {
-  const res = await fetch(url + endpoint, { body: bodyData, method, headers});
+    if (!res.ok) {
+      const error = new Error('Error en la solicitud');
+      error.details = response;
+      throw error;
+    }
 
-  const response = await res.json();
-
-  if (!res.ok) {
-    const error = new Error('Error en la solicitud Login');
-    error.details = response;
+    return response;
+  } catch (error) {
+    console.error('Error en la solicitud:', error);
     throw error;
   }
-
-  return response;
-} catch (error) {
-  console.error('Error en la solicitud:', error);
-  throw error; 
-}
- 
 };

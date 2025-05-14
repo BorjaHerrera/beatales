@@ -23,6 +23,11 @@ export const fieldForm = ({ labelText, type = 'text', required = true, placehold
     input.type = type;
     input.autocomplete = autocomplete;
 
+    if (type === 'file') {
+      input.accept = 'image/*';
+      input.classList.add('input-file');
+    }
+
   if (labelText?.toLowerCase() === 'nombre') {
     input.classList.add('register-name');
   }

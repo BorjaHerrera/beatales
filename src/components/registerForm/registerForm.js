@@ -9,8 +9,9 @@ export const registerForm = (form) => {
 
   const emailField = fieldForm( { labelText: "Correo electrónico", type: 'email'} )
   const passwordField = fieldForm( { labelText: "Contraseña", type: 'password'} )
+  const imageField = fieldForm({ labelText: "Imagen de perfil", type: 'file' })
 
-  form.append(nameField, emailField, passwordField)
+  form.append(nameField, emailField, passwordField, imageField)
 
   const submitButton = button({ text: 'Regístrate', type: 'submit' });
 
