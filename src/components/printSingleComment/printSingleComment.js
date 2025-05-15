@@ -33,7 +33,7 @@ export const printSingleComment = async () => {
       commentText.className = 'comment-text';
       commentText.textContent = comment.text;
 
-      const userCommentData = createUserCommentData(comment.user.name);
+      const userCommentData = createUserCommentData(comment.user);
 
       li.append(userCommentData, commentText);
       ul.appendChild(li);

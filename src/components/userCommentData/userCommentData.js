@@ -1,15 +1,15 @@
-import { printFirstLetter } from '../../utils/functions/printInitial';
 import { printName } from '../../utils/functions/printName';
+import { printUserAvatar } from '../../utils/functions/userAvatar';
 import './userCommentData.css';
 
-export const createUserCommentData = (userName) => {
+export const createUserCommentData = (user) => {
   const userCommentData = document.createElement('div');
   userCommentData.className = 'user-comment-data';
 
-  const printInitial = printFirstLetter(userName);
-  const printUserName = printName(userName);
+  const avatar = printUserAvatar(user);
+  const printUserName = printName(user.name);
 
-  userCommentData.append(printInitial, printUserName);
+  userCommentData.append(avatar, printUserName);
 
   return userCommentData;
 };
