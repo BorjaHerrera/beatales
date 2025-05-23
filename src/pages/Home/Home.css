@@ -41,12 +41,13 @@ body {
   justify-content: start;
   align-items: center;
   gap: var(--bt-gap-l);
+  padding: var(--bt-padding-xs);
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .single-song:hover {
   background-color: var(--bt-color-4);
   border-radius: 5px;
-  padding: var(--bt-padding-xs);
 }
 
 .song-info-container {

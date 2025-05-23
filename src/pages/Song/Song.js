@@ -15,6 +15,23 @@ export const Song = () => {
   const printSong = async () => {
     const songNameContainer = document.createElement('article');
     songNameContainer.className = 'selected-song';
+
+    let favorites = [];
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+
+    if (token && userId) {
+      try {
+        const response = await API({
+          endpoint: `/usuarios/${userId}/favoritas`,
+          method: 'GET',
+          token: token
+        });
+        favorites = response.favorites || [];
+      } catch (error) {
+        console.error('Error al obtener canciones favoritas en Song:', error);
+      }
+    }
     try {
       const song = await API({
         endpoint: `/cancion/${normalizedName}`,
@@ -38,7 +55,7 @@ export const Song = () => {
       songTitle.textContent = song.name;
       songTitle.className = 'one-song-title';
 
-      const heart = await heartButton(song._id);
+      const heart = await heartButton(song._id, favorites);
 
       const heartContainer = document.createElement('div');
       heartContainer.className = 'heart-container';

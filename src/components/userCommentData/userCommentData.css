@@ -18,6 +18,9 @@
   height: 50px;
   background-color: var(--bt-color-2);
   border-radius: 50%;
+}
+
+.capital-letter {
   color: var(--bt-color-1);
   font-size: 1.2rem;
   font-weight: bold;

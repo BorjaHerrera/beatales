@@ -1,8 +1,11 @@
 export const printFirstLetter = (userName) => {
   const firstLetterDiv = document.createElement('div');
-  const firstLetter = userName.charAt(0).toUpperCase();
   firstLetterDiv.className = 'circle-initial';
-  firstLetterDiv.textContent = firstLetter;
+
+  const span = document.createElement('span');
+  span.className = 'capital-letter';
+  span.textContent = userName.charAt(0).toUpperCase();
+  firstLetterDiv.appendChild(span);
 
   return firstLetterDiv;
 };

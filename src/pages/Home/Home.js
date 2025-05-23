@@ -25,6 +25,23 @@ export const Home = () => {
     const ul = document.createElement('ul');
     ul.className = 'songs-list';
 
+    let favorites = [];
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+
+    if (token && userId) {
+      try {
+        const response = await API({
+          endpoint: `/usuarios/${userId}/favoritas`,
+          method: 'GET',
+          token: token
+        });
+        favorites = response.favorites || [];
+      } catch (error) {
+        console.error('Error al obtener canciones favoritas en Home:', error);
+      }
+    }
+
     try {
       const songList = await API({ endpoint: '/', method: 'GET' });
 
@@ -92,7 +109,7 @@ export const Home = () => {
           });
         });
 
-        const heart = await heartButton(song._id);
+        const heart = await heartButton(song._id, favorites);
 
         songDetailsContainer.append(heart, musicImg, songLink);
 

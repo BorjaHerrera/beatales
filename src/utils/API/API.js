@@ -25,7 +25,10 @@ const bodyData = isJSON && !(body instanceof FormData) ? (body ? JSON.stringify(
 
     if (!res.ok) {
       const error = new Error('Error en la solicitud');
-      error.details = response;
+error.details = {
+        ...response,
+        status: res.status
+      };
       throw error;
     }
 

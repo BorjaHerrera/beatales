@@ -32,6 +32,20 @@
   font-size: 3rem;
 }
 
+.user-page-avatar {
+  display: flex;
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  margin-top: var(--bt-margin-s);
+}
+
+.user-page-avatar .capital-letter {
+  font-size: 4rem;
+}
+
 .logout-button {
   margin: 0 auto;
 }

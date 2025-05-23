@@ -1,5 +1,4 @@
 import { printFavorites } from '../printFavorites/printFavorites';
-import { API } from '../../utils/API/API';
 import { addFavorite } from '../../utils/functions/addFavorite';
 import { navigate } from '../../utils/functions/navigate';
 import { removeFavorite } from '../../utils/functions/removeFavorite';
@@ -27,49 +26,31 @@ export const heartButton = async (songId, favorites = null) => {
     return heart;
   }
 
-  const isFavorite = async () => {
-    if (favorites) {
-      return favorites.some((fav) => fav._id === songId);
-    }
-    try {
-      const response = await API({
-        endpoint: `/usuarios/${userId}/favoritas/`,
-        method: 'GET',
-        token: localStorage.getItem('token')
-      });
+  let isFavorite = favorites?.some((fav) => fav._id === songId) || false;
 
-      const isFavorite = response.favorites.some(
-        (favorite) => favorite._id === songId
-      );
-      console.log(`Song ID: ${songId} is favorite: ${isFavorite}`);
-      return isFavorite;
-    } catch (error) {
-      console.error('Error al verificar favoritos:', error);
-      return false;
-    }
-  };
-
-  let favorite = await isFavorite(songId, userId);
-
-  if (favorite) {
+  if (isFavorite) {
     heart.src = '/assets/corazon-rojo.png';
     heart.className = 'red-heart';
-  } else {
-    heart.src = '/assets/corazon-blanco.png';
   }
 
   heart.addEventListener('click', async () => {
-    favorite = await isFavorite(songId, userId);
-
-    if (favorite) {
+    if (isFavorite) {
       await removeFavorite(songId, userId);
       heart.src = '/assets/corazon-blanco.png';
-      // prettier-ignore
-      const userSectionContent = document.querySelector('.user-section-content');
-      await printFavorites({ id: userId, userSectionContent });
+      heart.className = 'white-heart';
+      isFavorite = false;
+
+      const userSectionContent = document.querySelector(
+        '.user-section-content'
+      );
+      if (userSectionContent) {
+        await printFavorites({ id: userId, userSectionContent });
+      }
     } else {
       await addFavorite(songId, userId);
       heart.src = '/assets/corazon-rojo.png';
+      heart.className = 'red-heart';
+      isFavorite = true;
     }
   });
 

@@ -3,6 +3,7 @@ import { createUserActions } from '../../components/userActions/createUserAction
 import { API } from '../../utils/API/API';
 import { createPage } from '../../utils/functions/createPage';
 import { logout } from '../../utils/functions/logout';
+import { printUserAvatar } from '../../utils/functions/userAvatar';
 import './User.css';
 
 export const User = () => {
@@ -26,6 +27,9 @@ export const User = () => {
         user.name.charAt(0).toUpperCase() + user.name.slice(1)
       }`;
 
+      const userAvatar = printUserAvatar(user);
+      userAvatar.classList.add('user-page-avatar');
+
       const userSectionContent = document.createElement('div');
       userSectionContent.className = 'user-section-content';
 
@@ -37,7 +41,13 @@ export const User = () => {
       logoutButton.textContent = 'Cerrar sesión';
       logoutButton.addEventListener('click', logout);
 
-      section.append(userH3, userActions, userSectionContent, logoutButton);
+      section.append(
+        userH3,
+        userAvatar,
+        userActions,
+        userSectionContent,
+        logoutButton
+      );
 
       printFavorites({ id, userSectionContent });
     } catch (error) {
